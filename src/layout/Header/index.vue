@@ -1,6 +1,10 @@
 <template>
   <div class="header">
-    <HeaderSearch/>
+    <div class="header-left">
+      <HeaderBrumb/>
+      <HeaderSearch/>
+    </div>
+
     <div class="header-right">
       <HeaderUser/>
       <HeaderFullscreen/>
@@ -12,6 +16,7 @@
 import HeaderSearch from './components/header-search/index.vue'
 import HeaderUser from './components/header-user/index.vue'
 import HeaderFullscreen from './components/header-fullscreen/index.vue'
+import HeaderBrumb from './components/header-brumb/index.vue';
 
 </script>
 
@@ -22,6 +27,11 @@ import HeaderFullscreen from './components/header-fullscreen/index.vue'
     display: flex;
     justify-content: space-between;
     align-items: center;
+    .header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
     .header-right {
       display: flex;
       justify-content: space-evenly;

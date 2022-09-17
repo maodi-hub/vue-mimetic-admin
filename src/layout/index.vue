@@ -27,6 +27,9 @@
   .el-aside {
     overflow: visible;
   }
+  .el-header {
+    height: 90px;
+  }
   .el-main {
     .main-container {
       padding: 10px;
@@ -58,6 +61,6 @@
 
 .main-container-enter-active,
 .main-container-leave-active {
-  transition: 1s linear ;
+  transition: .5s linear ;
 }
 </style>

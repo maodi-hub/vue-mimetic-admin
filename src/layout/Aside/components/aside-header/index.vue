@@ -24,7 +24,7 @@ import { ArrowDown } from '@element-plus/icons-vue'
 
 <style scoped lang="less">
  .aside-header {
-  height: 80px;
+  height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;

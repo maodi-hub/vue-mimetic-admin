@@ -7,24 +7,15 @@
         @open="handleOpen"
         @close="handleClose"
       >
-        <el-menu-item index="1">
-          <el-icon><icon-menu /></el-icon>
-          <span>首页</span>
-        </el-menu-item>
-        <el-menu-item index="2">
-          <el-icon><setting /></el-icon>
-          <span>Navigator Four</span>
-        </el-menu-item>
+        <template v-for="item in ['0','1','2','3','4']">
+          <MenuItem :index="item"/>
+        </template>
       </el-menu>
 </template>
 
 <script setup lang="ts">
-import {
-  Document,
-  Menu as IconMenu,
-  Location,
-  Setting,
-} from '@element-plus/icons-vue'
+import MenuItem from './aside-menu-item/index.vue';
+
 const handleOpen = (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
 }
@@ -39,24 +30,5 @@ const handleClose = (key: string, keyPath: string[]) => {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    .el-menu-item {
-      padding: 0;
-      margin: 0 10px;
-      background: #e9ecef;
-      border-radius: 20px;
-      transition: .2s linear;
-      box-shadow:
-        7px 7px 12px rgba(0, 0, 0, .4),
-        -7px -7px 12px rgba(255, 255, 255, .9),
-        inset 0 0 0 rgba(255, 255, 255, .9),
-        inset 0 0 0 rgba(0, 0, 0, .4);
-        &.is-active {
-          box-shadow:
-            0 0 0 rgba(0, 0, 0, .4),
-            0 0 0 rgba(255, 255, 255, .9),
-            inset -7px -7px 12px rgba(255, 255, 255, .9),
-            inset 7px 7px 12px rgba(0, 0, 0, .4);
-        }
-    }
   }
 </style>

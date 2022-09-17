@@ -1,6 +1,8 @@
 <template>
   <el-container>
-    <el-aside width="200px">Aside</el-aside>
+    <el-aside width="200px">
+      <Aside/>
+    </el-aside>
     <el-container>
       <el-header>Header</el-header>
       <el-main>Main</el-main>
@@ -9,11 +11,14 @@
 </template>
 
 <script setup lang="ts">
-
+  import Aside from './Aside/index.vue'
 </script>
 
 <style scoped lang="less">
 .el-container {
   height: 100%;
+  .el-aside {
+    overflow: visible;
+  }
 }
 </style>

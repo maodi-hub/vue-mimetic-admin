@@ -10,6 +10,6 @@
 
 <style scoped lang="less">
  div {
-  height: 80px;
+  height: 60px;
  }
 </style>

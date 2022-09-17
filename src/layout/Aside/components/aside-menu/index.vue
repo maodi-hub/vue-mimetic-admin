@@ -9,7 +9,7 @@
       >
         <el-menu-item index="1">
           <el-icon><icon-menu /></el-icon>
-          <span>Navigator Two</span>
+          <span>首页</span>
         </el-menu-item>
         <el-menu-item index="2">
           <el-icon><setting /></el-icon>

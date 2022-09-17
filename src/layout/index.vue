@@ -7,7 +7,11 @@
       <el-header>
         <Header/>
       </el-header>
-      <el-main>Main</el-main>
+      <el-main>
+        <transition name="main-container" appear>
+          <div class="main-container mimetic"></div>
+        </transition>
+      </el-main>
     </el-container>
   </el-container>
 </template>
@@ -23,5 +27,37 @@
   .el-aside {
     overflow: visible;
   }
+  .el-main {
+    .main-container {
+      padding: 10px;
+      height: calc(100% - 20px);
+      background-color: rgba(255, 255, 255, .1);
+    }
+  }
+}
+
+.main-container-enter-from,
+.main-container-leave-to {
+  opacity: 0;
+  box-shadow:
+    7px 7px 12px rgba(0, 0, 0, 0),
+    -7px -7px 12px rgba(255, 255, 255, 0),
+    inset 0 0 0 rgba(255, 255, 255, 0),
+    inset 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.main-container-enter-to,
+.main-container-leave-from {
+  opacity: 1;
+  box-shadow:
+    7px 7px 12px rgba(0, 0, 0, .1),
+    -7px -7px 12px rgba(255, 255, 255, .9),
+    inset 0 0 0 rgba(255, 255, 255, .9),
+    inset 0 0 0 rgba(0, 0, 0, .1);
+}
+
+.main-container-enter-active,
+.main-container-leave-active {
+  transition: 1s linear ;
 }
 </style>

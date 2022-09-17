@@ -1,16 +1,15 @@
 <template>
   <el-menu
-        default-active="2"
-        class="el-menu-vertical-demo"
-        background-color="#e9ecef"
-        active-text-color="#333"
-        @open="handleOpen"
-        @close="handleClose"
-      >
-        <template v-for="item in ['0','1','2','3','4']">
-          <MenuItem :index="item"/>
-        </template>
-      </el-menu>
+    default-active="2"
+    class="el-menu-vertical-demo"
+    background-color="#e9ecef"
+    active-text-color="#333"
+    @open="handleOpen"
+    @close="handleClose">
+      <template v-for="item in ['0','1','2','3','4','5','6','7','8']">
+        <MenuItem :index="item"/>
+      </template>
+    </el-menu>
 </template>
 
 <script setup lang="ts">

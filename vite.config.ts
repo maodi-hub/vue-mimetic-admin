@@ -24,7 +24,8 @@ export default defineConfig({
       '@components': resolve(__dirname,'./src/components'),
       '@apis': resolve(__dirname,'./src/api'),
       '@config': resolve(__dirname,'./src/config'),
-      '@store': resolve(__dirname,'./src/store')
+      '@store': resolve(__dirname,'./src/store'),
+      '@style': resolve(__dirname, './src/style')
     }
   }
 })

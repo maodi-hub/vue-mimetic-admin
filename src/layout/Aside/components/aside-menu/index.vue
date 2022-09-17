@@ -1,26 +1,36 @@
 <template>
   <el-menu
-    default-active="2"
-    class="el-menu-vertical-demo"
+    :default-active="defaultActive"
     background-color="#e9ecef"
     active-text-color="#333"
-    @open="handleOpen"
-    @close="handleClose">
-      <template v-for="item in ['0','1','2','3','4','5','6','7','8']">
-        <MenuItem :index="item"/>
+    router>
+      <template v-for="(item, index) in menu">
+        <MenuItem :index="index" :path="item.path" :name="item.name"/>
       </template>
     </el-menu>
 </template>
 
 <script setup lang="ts">
-import MenuItem from './aside-menu-item/index.vue';
+import { computed, ref } from 'vue'
+import { useRoute } from 'vue-router';
+import MenuItem from './aside-menu-item/index.vue'
 
-const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
-}
-const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
-}
+const $route = useRoute()
+
+const menu = ref([
+  {
+    path: '/home',
+    name: '首页'
+  },
+  {
+    path: '/charts',
+    name: '图表' 
+  }
+])
+
+const defaultActive = computed(() => $route.path)
+
+
 </script>
 
 <style scoped lang="less">

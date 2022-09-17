@@ -21,11 +21,11 @@
       "@components/*": ["src/components/*"],
       "@apis/*": ["src/api/*"],
       "@config/*": ["src/config/*"],
-      "@store/*": ["src/store/*"]
+      "@store/*": ["src/store/*"],
+      "@style/*": ["src/style/*"]
     },
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "exclude": ["node_modules"],
   "references": [{ "path": "./tsconfig.node.json" }],
-  
 }

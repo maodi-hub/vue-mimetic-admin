@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ContainerBox: typeof import('./src/components/Global/container-box/index.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAutocomplete: typeof import('element-plus/es')['ElAutocomplete']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']

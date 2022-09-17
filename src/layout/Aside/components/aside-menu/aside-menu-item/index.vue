@@ -1,8 +1,8 @@
 <template>
   <transition name="menu-item" appear>
-    <el-menu-item :index="index" :style="{'--i': parseFloat(index) + .75}">
+    <el-menu-item :index="path" :style="{'--i': index + .75}">
       <el-icon><icon-menu /></el-icon>
-      <span>首页</span>
+      <span>{{name}}</span>
     </el-menu-item>
   </transition>
 </template>
@@ -16,7 +16,9 @@ import {
 } from '@element-plus/icons-vue'
 
 interface Props {
-  index: string
+  index: number,
+  name: string,
+  path: string
 }
 defineProps<Props>()
 </script>

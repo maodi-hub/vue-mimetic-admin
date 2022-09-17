@@ -8,9 +8,13 @@
         <Header/>
       </el-header>
       <el-main>
-        <transition name="main-container" appear>
-          <div class="main-container mimetic"></div>
-        </transition>
+        <router-view v-slot="{ Component, route }">
+          <transition name="page">
+            <keep-alive>
+              <component :is="Component" :key="route.path"></component>
+            </keep-alive>
+          </transition>
+        </router-view>
       </el-main>
     </el-container>
   </el-container>
@@ -39,28 +43,4 @@
   }
 }
 
-.main-container-enter-from,
-.main-container-leave-to {
-  opacity: 0;
-  box-shadow:
-    7px 7px 12px rgba(0, 0, 0, 0),
-    -7px -7px 12px rgba(255, 255, 255, 0),
-    inset 0 0 0 rgba(255, 255, 255, 0),
-    inset 0 0 0 rgba(0, 0, 0, 0);
-}
-
-.main-container-enter-to,
-.main-container-leave-from {
-  opacity: 1;
-  box-shadow:
-    7px 7px 12px rgba(0, 0, 0, .1),
-    -7px -7px 12px rgba(255, 255, 255, .9),
-    inset 0 0 0 rgba(255, 255, 255, .9),
-    inset 0 0 0 rgba(0, 0, 0, .1);
-}
-
-.main-container-enter-active,
-.main-container-leave-active {
-  transition: .5s linear ;
-}
 </style>

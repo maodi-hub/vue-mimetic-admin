@@ -7,7 +7,8 @@
       clearable
       placeholder="搜索"
       @select="handleSelect"
-      size="default">
+      size="default"
+      class="custom-border-radius-base">
         <template  #prefix>
           <el-icon><Search /></el-icon>
         </template>

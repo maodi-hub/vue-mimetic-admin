@@ -2,6 +2,7 @@ export default [
   {
     path: '/',
     component: () => import('@/layout/index.vue'),
+    redirect: '/home',
     children: [
       {
         path: 'home',

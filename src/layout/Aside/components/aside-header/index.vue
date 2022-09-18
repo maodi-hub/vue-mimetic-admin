@@ -2,7 +2,7 @@
   <div class="aside-header">
     <el-dropdown>
       <el-button>
-        Dropdown List<el-icon class="el-icon--right"><arrow-down /></el-icon>
+        首页<el-icon class="el-icon--right"><arrow-down /></el-icon>
       </el-button>
       <template #dropdown>
         <el-dropdown-menu>

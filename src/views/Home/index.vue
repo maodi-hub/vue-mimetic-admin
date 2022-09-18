@@ -22,7 +22,7 @@ import PieCharts from './components/pie-charts/index.vue'
     flex-wrap: wrap;
     gap: 20px 20px;
     .pie {
-      flex: 1;
+      flex-grow: 1;
       min-width: 430px;
     }
   }

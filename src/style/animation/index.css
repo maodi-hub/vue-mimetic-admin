@@ -22,6 +22,7 @@
 .mimetic-enter-active,
 .mimetic-leave-active {
   transition: .5s linear;
+  transition-delay: calc(var(--i) * .5s);
 }
 
 /* 书本翻页 */

@@ -24,10 +24,19 @@ import { ArrowDown } from '@element-plus/icons-vue'
 
 <style scoped lang="less">
  .aside-header {
+  position: relative;
   height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    height: 1px;
+    background-color: #f4f4f5;
+  }
   .el-dropdown {
     width: 180px;
     height: 40px;

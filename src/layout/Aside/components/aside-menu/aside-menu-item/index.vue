@@ -1,13 +1,25 @@
 <template>
-  <transition name="menu-item" appear>
-    <el-menu-item :index="path" :style="{'--i': index + .75}">
-      <el-icon><icon-menu /></el-icon>
-      <span>{{name}}</span>
+  <template v-for="item in menuList">
+    <template v-if="item.children && item.children.length">
+      <el-sub-menu :index="item.path">
+        <template #title>
+          <el-icon><IconMenu/></el-icon>
+          <span>{{ item.name }}</span>
+        </template>
+        <SELF :menu-list="item.children"/>
+      </el-sub-menu>
+    </template>
+    <el-menu-item :index="item.path" v-else>
+      <template #title>
+        <el-icon><IconMenu/></el-icon>
+        <span>{{ item.name }}</span>
+      </template>
     </el-menu-item>
-  </transition>
+  </template>
 </template>
 
 <script setup lang="ts">
+import SELF from './index.vue'
 import {
   Document,
   Menu as IconMenu,
@@ -15,34 +27,39 @@ import {
   Setting,
 } from '@element-plus/icons-vue'
 
-interface Props {
-  index: number,
-  name: string,
+interface MenuItem {
   path: string
+  name: string
+  children?: MenuItem[]
+}
+
+interface Props {
+  menuList: MenuItem[]
 }
 defineProps<Props>()
 </script>
 
 <style scoped lang="less">
-.el-menu-item {
-  padding: 0;
-  margin: 0 10px;
-  background: #e9ecef;
-  border-radius: 10px;
-  transition: .2s linear;
-  box-shadow:
-    7px 7px 12px rgba(0, 0, 0, .1),
-    -7px -7px 12px rgba(255, 255, 255, .9),
-    inset 0 0 0 rgba(255, 255, 255, .9),
-    inset 0 0 0 rgba(0, 0, 0, .1);
+  .el-sub-menu {
     &.is-active {
-      box-shadow:
-        0 0 0 rgba(0, 0, 0, .1),
-        0 0 0 rgba(255, 255, 255, .9),
-        inset -7px -7px 12px rgba(255, 255, 255, .9),
-        inset 7px 7px 12px rgba(0, 0, 0, .1);
+      :deep(.el-sub-menu__title) {
+        color: #67748e;
+        font-size: 15px;
+        background-color: #f6f9fc;
+      }
     }
-}
+    :deep(.el-sub-menu__title) {
+      border-radius: 10px;
+      transition: .3s ease-in-out;
+    }
+  }
+  .el-menu-item {
+    border-radius: 10px;
+    overflow: hidden;
+    &.is-active {
+      color: #212529;
+    }
+  }
 
 .menu-item-enter-from,
 .menu-item-leave-to {

@@ -1,19 +1,20 @@
 export default [
   {
-    path: '/',
+    path: '/home',
     component: () => import('@/layout/index.vue'),
-    redirect: '/home',
     children: [
       {
-        path: 'home',
+        path: 'index',
         name: 'home',
-        component: () => import('@views/Home/index.vue')
-      },
-      {
-        path: 'charts',
-        name: 'charts',
-        component: () => import('@views/Charts/index.vue')
-      },
+        component: () => import('@views/Home/index.vue'),
+        children: [
+          {
+            path: 'charts',
+            name: 'charts',
+            component: () => import('@views/Charts/index.vue')
+          }
+        ]
+      }
     ]
   }
 ]

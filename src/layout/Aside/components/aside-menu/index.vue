@@ -1,31 +1,37 @@
 <template>
   <el-menu
-    :default-active="defaultActive"
-    background-color="#e9ecef"
-    active-text-color="#333"
-    router>
-      <template v-for="(item, index) in menu">
-        <MenuItem :index="index" :path="item.path" :name="item.name"/>
-      </template>
-    </el-menu>
+  :default-active="defaultActive"
+  text-color="rgba(33,37,41,.5)"
+  active-text-color="#212529"
+  router>
+      <MenuItems :menu-list="menu"/>
+  </el-menu>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router';
-import MenuItem from './aside-menu-item/index.vue'
+import MenuItems from './aside-menu-item/index.vue'
 
 const $route = useRoute()
 
 const menu = ref([
   {
     path: '/home',
-    name: '首页'
+    name: '主页',
+    children: [
+      {
+        path: '/home/index',
+        name: '首页',
+        children: []
+      },
+      {
+        path: '/home/charts',
+        name: '图表' 
+      }
+    ]
   },
-  {
-    path: '/charts',
-    name: '图表' 
-  }
+
 ])
 
 const defaultActive = computed(() => $route.path)
@@ -35,9 +41,15 @@ const defaultActive = computed(() => $route.path)
 
 <style scoped lang="less">
   .el-menu {
+    width: calc(100% - 20px);
     border-right: none;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
+    :deep(.el-menu) {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
   }
 </style>
